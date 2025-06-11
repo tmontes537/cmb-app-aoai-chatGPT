@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://sampleappaoaichatgpt.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_be0cc799af1d420aa6e0f0b751ba13b0 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_de54d0a13dc54095b842534b332e5b33 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_ed4e684856f44303a584562ae59054f2 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_1ce526eb1a664ae7888430e723acb3b9 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: sampleappaoaichatgpt.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_be0cc799af1d420aa6e0f0b751ba13b0 }}/sample-app-aoai-chatgpt:${{ github.sha }}
+        tags: sampleappaoaichatgpt.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ed4e684856f44303a584562ae59054f2 }}/sample-app-aoai-chatgpt:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'LeHandBookExpert'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_70c4f9c12c744b4bb81398568227b3c2 }}
-        images: 'sampleappaoaichatgpt.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_be0cc799af1d420aa6e0f0b751ba13b0 }}/sample-app-aoai-chatgpt:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e4f45a0441d845b4ae863ddd9257e8b1 }}
+        images: 'sampleappaoaichatgpt.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ed4e684856f44303a584562ae59054f2 }}/sample-app-aoai-chatgpt:${{ github.sha }}'
